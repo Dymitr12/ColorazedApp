@@ -21,33 +21,35 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
      
         redSlider.value = 0.1
+        redSlider.minimumTrackTintColor = .red
+        
         greenSlider.value = 0.1
+        greenSlider.minimumTrackTintColor = .green
+        
         blueSlider.value = 0.1
-       
-        redLabel.text = String(redSlider.value)
-        greenLabel.text = String(greenSlider.value)
-        blueLabel.text = String(blueSlider.value)
-        
-        colorView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
-       
-        
+        blueSlider.minimumTrackTintColor = .blue
     }
+    
     override func viewDidLayoutSubviews() {
- 
         colorView.layer.cornerRadius = colorView.frame.width / 60
   }
-    
-    @IBAction func redSliderAction() {
+  
+    @IBAction func ColorSetting() {
+        settingLabel()
+        
+        colorView.backgroundColor = UIColor(red: CGFloat(redSlider.value),
+                                            green: CGFloat(greenSlider.value),
+                                            blue: CGFloat(blueSlider.value),
+                                            alpha: 1)
+    }
+        
+        private func settingLabel() {
         redLabel.text = String(redSlider.value)
-    }
-    @IBAction func greenSliderAction() {
         greenLabel.text = String(greenSlider.value)
-    }
-    @IBAction func blueSliderAction() {
         blueLabel.text = String(blueSlider.value)
+        
     }
+    
 }
-
